@@ -24,9 +24,16 @@ $(function () {
     });
 
     // Guarden API Call
-    
+    $.ajax({
+      url: "http://content.guardianapis.com/search?section=world&q=top%20news&api-key=bxhaadk2t7dvq26gjv6y29fk",
+      dataType: 'json',
+      success: function(results) {
+        $(results.response.results).each(function(index, element) {
+            $('ul').append("<li>" + this.webTitle + " <a href='" + this.webUrl + "'>link</a>" + "</li>");
+        });
+      }
+    });
+
 
 
 });
-
-bxhaadk2t7dvq26gjv6y29fk
